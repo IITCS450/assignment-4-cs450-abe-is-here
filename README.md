@@ -1,1 +1,5 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/V1apBZ35)
+- Modified trap.c to detect T_PGFLT in user mode, read CR2 with rcr2(), print process diagnostics, and label addresses below PGSIZE as likely NULL dereferences.
+- Preserved kernel-mode fault behavior so kernel faults still follow xv6’s default panic path.
+- Modified the user virtual memory layout so page 0 is left unmapped.
+- Updated process/user program startup so user code begins at 0x1000.
+- Updated copyuvm() to start copying from PGSIZE and preserve page permission bits with PTE_FLAGS(*pte).
